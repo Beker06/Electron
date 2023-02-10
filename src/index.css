@@ -15,10 +15,20 @@ code {
 
 .app{
   height: 100vh;
+  background-color: #ededed;
 }
 
 .main-container{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.main-dark{
+  background-color: #121212;
+  color: #ededed;
+}
+.main-light{
+  background-color: #fff;
+  color: #352;
 }

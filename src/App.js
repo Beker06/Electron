@@ -1,23 +1,26 @@
 import './Styles/table.css'
 import Table from './Components/Table';
 import Layout from './Components/Layout';
-import { createContext, useState } from 'react';
+import { useState } from 'react';
+import {UseThemeContext} from '../src/context/themeContext'
 
-export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] =useState("dark")
+  const {isDarkMode} = UseThemeContext()
+
+
+  
+
   return (
     <>
-    <ThemeContext.Provider value={{theme, setTheme}}>
+  
       <Layout>
-        <div className='main-container'>
+        <div className={`main-container ${isDarkMode && "main-dark"}` } >
           <h1>Periodic Table of Elements</h1>
-          <small>with React + CSS Grid</small>
           <Table/>
         </div>
       </Layout>
-    </ThemeContext.Provider>
+    
     </>
   );
 }

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Luna from '../Img/moon.png';
 import Sol from '../Img/sun.png';
-import { ThemeContext } from '../App';
+import {UseThemeContext} from '../context/themeContext'
 
 const Navbar = () => {
-
-    const [lightMode, setLightMode] = useState(false);
+    const {setIsDarkMode, isDarkMode} = UseThemeContext()
 
     // const lightStyles = {
     //     backgroundColor: 'white',
@@ -21,13 +20,19 @@ const Navbar = () => {
     //     document.body.style = lightMode ? lightStyles : darkStyles;
     //   }, [lightMode]);
 
+    const toggleDarkMode = () => {
+
+        setIsDarkMode(!isDarkMode)
+
+    }
+
   return (
     <>
         <header>
-            <nav id="navbar" className={`${lightMode ? "light" : ""}`}>
+            <nav id="navbar" className={`${isDarkMode ? "dark" : "light"}`}>
                 <h1>electron</h1>
-                <div className='theme-container' onClick={() => setLightMode(!lightMode)}>
-                    {lightMode ? <img src={Sol} alt="them-icon"/> : <img src={Luna} alt="them-icon"/>}
+                <div className='theme-container' onClick={toggleDarkMode}>
+                    {isDarkMode ?   <img src={Luna} alt="them-icon"/> :<img src={Sol} alt="them-icon"/>} 
                 </div>
             </nav>
         </header>
