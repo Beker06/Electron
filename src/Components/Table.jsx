@@ -12,7 +12,8 @@ const colorMap = {
   metalloid: "#73D2DE"
 };
 
-const Table = () => {
+const Table = (props) => {
+
   return (
     <>
     <div className='table-container'>
@@ -25,8 +26,8 @@ const Table = () => {
             gridRow: element.ypos,
             borderColor: colorMap[element.category],
             backgroundColor: colorMap[element.category],
-
           }}
+          onClick={() => props.onSelectElement(element)}
         >
           <strong>{element.symbol}</strong>
           <small className='number'>{element.number}</small>

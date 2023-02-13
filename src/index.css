@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  overflow-y: hidden;
 }
 
 code {
@@ -20,15 +20,30 @@ code {
 
 .main-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
 }
-
 .main-dark{
-  background-color: #121212;
+  background-color: #223;
   color: #ededed;
+
 }
 .main-light{
   background-color: #fff;
-  color: #352;
+
+}
+.main-table-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.main-col{
+  display: flex;
+  flex-direction:column ;
+  width: 80%;
+}
+.main-col h1{
+  text-align: center;
 }
